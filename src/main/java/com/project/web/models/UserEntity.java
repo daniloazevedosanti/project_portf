@@ -21,6 +21,7 @@ public class UserEntity {
     private String username;
     private String email;
     private String password;
+    private Boolean isEmployer;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_roles",
