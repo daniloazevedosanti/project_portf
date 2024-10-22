@@ -1,0 +1,130 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+  <title>Editar Projeto</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+  <section layout:fragment="body" class="py-5">
+    <div class="container">
+      <form role="form" method="post" th:action="@{/projects/{projectId}/edit(projectId=${project.id})}" th:object="${project}">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="name">Nome</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    th:field="*{name}"
+                    placeholder="Nome do projeto">
+            <p th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></p>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="manager">Gerente Responsável</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="manager"
+                    name="manager"
+                    th:field="*{manager}"
+                    placeholder="Entre com o gerente do projeto">
+            <p th:if="${#fields.hasErrors('manager')}" class="text-danger" th:errors="*{manager}"></p>
+          </div>
+
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="startDate">Data de inicio</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="startDate"
+                    name="startDate"
+                    th:field="*{startDate}"
+                    placeholder="">
+            <p th:if="${#fields.hasErrors('startDate')}" class="text-danger" th:errors="*{startDate}"></p>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="finalDate">Data de termino</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="finalDate"
+                    name="finalDate"
+                    th:field="*{finalDate}"
+                    placeholder="">
+            <p th:if="${#fields.hasErrors('finalDate')}" class="text-danger" th:errors="*{finalDate}"></p>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="dateFinalReal">Data de termino real</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="dateFinalReal"
+                    name="dateFinalReal"
+                    th:field="*{dateFinalReal}"
+                    placeholder=" ">
+            <p th:if="${#fields.hasErrors('dateFinalReal')}" class="text-danger" th:errors="*{dateFinalReal}"></p>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="totalBudget">Orçamento total</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="totalBudget"
+                    name="totalBudget"
+                    th:field="*{totalBudget}"
+                    placeholder="">
+            <p th:if="${#fields.hasErrors('totalBudget')}" class="text-danger" th:errors="*{totalBudget}"></p>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="description">Descrição</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="description"
+                    name="description"
+                    th:field="*{description}"
+                    placeholder="">
+            <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="dateFinalReal">Status</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="status"
+                    name="status"
+                    th:field="*{status}"
+                    placeholder=" ">
+            <p th:if="${#fields.hasErrors('status')}" class="text-danger" th:errors="*{status}"></p>
+          </div>
+
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+      </form>
+    </div>
+  </section>
+</main>
+</body>
+</html>
